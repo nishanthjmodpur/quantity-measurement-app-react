@@ -1,0 +1,21 @@
+.app {
+  min-height: 100vh;
+  background: #f1f5f9;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.input-section {
+  margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 20px 12px;
+  }
+}

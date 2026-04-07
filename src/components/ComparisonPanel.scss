@@ -1,0 +1,60 @@
+.comparison-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  .input-card {
+    flex: 1;
+  }
+}
+
+.vs-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.compare-result-card {
+  margin-top: 24px;
+  border-left: 4px solid #94a3b8;
+  border-radius: 12px;
+  padding: 20px 24px;
+  background: #f8fafc;
+
+  &.equal {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+
+    .compare-result-text {
+      color: #10b981;
+    }
+  }
+
+  &.not-equal {
+    border-left-color: #f97316;
+    background: #fff7ed;
+
+    .compare-result-text {
+      color: #f97316;
+    }
+  }
+}
+
+.compare-result-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: #64748b;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .comparison-row {
+    flex-direction: column;
+  }
+
+  .compare-result-text {
+    font-size: 22px;
+  }
+}

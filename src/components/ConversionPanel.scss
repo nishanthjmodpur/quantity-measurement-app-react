@@ -1,0 +1,56 @@
+.conversion-row {
+  display: flex;
+  gap: 24px;
+}
+
+.input-card {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.input-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.value-input {
+  width: 100%;
+  border: none;
+  font-size: 36px;
+  font-weight: 600;
+  color: #1e293b;
+  outline: none;
+  background: transparent;
+  box-sizing: border-box;
+  padding: 4px 0;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+.result-text {
+  color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .conversion-row {
+    flex-direction: column;
+  }
+
+  .value-input {
+    font-size: 28px;
+  }
+}
