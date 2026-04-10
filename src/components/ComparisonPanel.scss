@@ -11,33 +11,34 @@
 .vs-label {
   font-size: 16px;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .compare-result-card {
   margin-top: 24px;
-  border-left: 4px solid #94a3b8;
+  border-left: 4px solid var(--text-muted);
   border-radius: 12px;
   padding: 20px 24px;
-  background: #f8fafc;
+  background: var(--neutral-bg);
+  transition: background 0.3s;
 
   &.equal {
-    border-left-color: #10b981;
-    background: #f0fdf4;
+    border-left-color: var(--green);
+    background: var(--green-bg);
 
     .compare-result-text {
-      color: #10b981;
+      color: var(--green);
     }
   }
 
   &.not-equal {
-    border-left-color: #f97316;
-    background: #fff7ed;
+    border-left-color: var(--accent);
+    background: var(--orange-bg);
 
     .compare-result-text {
-      color: #f97316;
+      color: var(--accent);
     }
   }
 }
@@ -45,7 +46,7 @@
 .compare-result-text {
   font-size: 28px;
   font-weight: 700;
-  color: #64748b;
+  color: var(--text-muted);
   margin-top: 8px;
 }
 

@@ -12,7 +12,7 @@ function TypeSelector({ selected, onSelect }) {
             className={`type-card ${selected === t ? 'selected' : ''}`}
             onClick={() => onSelect(t)}
           >
-            <span className="type-icon">{TYPE_ICONS[t]}</span>
+            <span className="material-icons type-icon">{TYPE_ICONS[t]}</span>
             <span className="type-label">{t.charAt(0).toUpperCase() + t.slice(1)}</span>
           </div>
         ))}

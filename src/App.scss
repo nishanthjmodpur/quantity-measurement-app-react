@@ -1,7 +1,8 @@
 .app {
   min-height: 100vh;
-  background: #f1f5f9;
+  background: var(--bg);
   font-family: 'Segoe UI', system-ui, sans-serif;
+  transition: background 0.3s;
 }
 
 .main {
@@ -12,6 +13,23 @@
 
 .input-section {
   margin-top: 10px;
+}
+
+.home-section {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.home-caption {
+  font-size: 16px;
+  color: var(--text-muted);
 }
 
 @media (max-width: 640px) {

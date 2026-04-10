@@ -2,31 +2,18 @@
   margin-bottom: 30px;
 }
 
-.action-cards {
+.action-nav-wrapper {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 12px 8px;
   display: flex;
-  gap: 12px;
-}
+  justify-content: center;
 
-.action-btn {
-  flex: 1;
-  padding: 12px 20px;
-  border: 2px solid #e2e8f0;
-  border-radius: 25px;
-  background: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  color: #64748b;
-  cursor: pointer;
-  transition: all 0.2s;
+  .gooey-nav-container {
+    width: 100%;
 
-  &:hover {
-    border-color: #f97316;
-    color: #f97316;
-  }
-
-  &.active {
-    background: #f97316;
-    border-color: #f97316;
-    color: #fff;
+    nav ul {
+      justify-content: center;
+    }
   }
 }

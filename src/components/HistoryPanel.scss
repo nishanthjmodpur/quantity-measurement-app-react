@@ -1,0 +1,131 @@
+.history-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.history-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.history-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  .filter-icon {
+    font-size: 16px;
+  }
+
+  .filter-count {
+    background: var(--hover-bg);
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  &.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+
+    .filter-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+  }
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.history-entry {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  transition: background 0.3s;
+
+  &.error {
+    border-left: 3px solid #ef4444;
+  }
+}
+
+.entry-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.entry-icon {
+  font-size: 18px;
+  color: var(--accent);
+
+  .history-entry.error & {
+    color: #ef4444;
+  }
+}
+
+.entry-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.entry-result {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green);
+  padding-left: 26px;
+
+  &.error {
+    color: #ef4444;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 640px) {
+  .history-filters {
+    gap: 6px;
+  }
+
+  .history-filter-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .entry-result {
+    font-size: 18px;
+  }
+}

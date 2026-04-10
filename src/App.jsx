@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react'
-import { useRef } from 'react';
-import Crosshair from './importedcomponents/Crosshair';
 import Header from './components/Header'
 import TypeSelector from './components/TypeSelector'
-import ActionSelector from './components/ActionSelector'
 import ComparisonPanel from './components/ComparisonPanel'
 import ConversionPanel from './components/ConversionPanel'
 import ArithmeticPanel from './components/ArithmeticPanel'
+import HistoryPanel from './components/HistoryPanel'
 import { UNITS, MEASUREMENT_TYPES, OPERATOR_TO_ENDPOINT } from './constants'
 import { compareQuantities, convertQuantity, addQuantities, subtractQuantities, divideQuantities } from './api'
 import './App.scss'
 
 function App() {
-  const containerRef = useRef(null);
+  const [theme, setTheme] = useState('light')
   const [type, setType] = useState('length')
-  const [action, setAction] = useState('comparison')
+  const [action, setAction] = useState(null)
   const [value1, setValue1] = useState(1)
   const [value2, setValue2] = useState(1)
   const [unit1, setUnit1] = useState('FEET')
@@ -23,6 +21,10 @@ function App() {
   const [result, setResult] = useState('')
   const [resultUnit, setResultUnit] = useState('FEET')
   const [openDropdown, setOpenDropdown] = useState(null)
+
+  function toggleTheme() {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+  }
 
   useEffect(() => {
     const units = UNITS[type]
@@ -41,6 +43,8 @@ function App() {
   }, [value1, value2, unit1, unit2, action, operator, type])
 
   async function handleCalculate() {
+    if (!action || action === 'history') return
+
     const measurementType = MEASUREMENT_TYPES[type]
     const thisQty = { value: Number(value1), unit: unit1, measurementType }
     const thatQty = { value: Number(value2), unit: unit2, measurementType }
@@ -51,7 +55,7 @@ function App() {
         data = await compareQuantities(thisQty, thatQty)
       } else if (action === 'conversion') {
         data = await convertQuantity(thisQty, thatQty)
-      } else {
+      } else if (action === 'arithmetic') {
         const op = OPERATOR_TO_ENDPOINT[operator]
         if (op === 'add') data = await addQuantities(thisQty, thatQty)
         else if (op === 'subtract') data = await subtractQuantities(thisQty, thatQty)
@@ -73,12 +77,24 @@ function App() {
   const units = UNITS[type]
 
   return (
-    <div className="app" ref={containerRef} style={{ overflow: 'hidden', minHeight: '100vh' }}>
-      {/* <Crosshair containerRef={containerRef} color='#000000' targeted /> */}
-      <Header />
+    <div className="app" data-theme={theme}>
+      <Header
+        action={action}
+        onSelectAction={setAction}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
       <main className="main">
-        <TypeSelector selected={type} onSelect={setType} />
-        <ActionSelector selected={action} onSelect={setAction} />
+        {!action && (
+          <div className="home-section">
+            <h1 className="home-title">Welcome to Quantity Measurement</h1>
+            <p className="home-caption">Choose an action from the navigation bar to get started</p>
+          </div>
+        )}
+
+        {action && action !== 'history' && (
+          <TypeSelector selected={type} onSelect={setType} />
+        )}
 
         <section className="input-section">
           {action === 'comparison' && (
@@ -112,6 +128,9 @@ function App() {
               units={units}
               openDropdown={openDropdown} setOpenDropdown={setOpenDropdown}
             />
+          )}
+          {action === 'history' && (
+            <HistoryPanel />
           )}
         </section>
       </main>

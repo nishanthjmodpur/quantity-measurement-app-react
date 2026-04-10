@@ -29,13 +29,13 @@ export const MEASUREMENT_TYPES = {
 }
 
 export const TYPE_ICONS = {
-  length: '📏',
-  weight: '⚖️',
-  temperature: '🌡️',
-  volume: '🧪',
+  length: 'straighten',
+  weight: 'scale',
+  temperature: 'thermostat',
+  volume: 'water_drop',
 }
 
-export const OPERATORS = ['+', '-', '×', '÷']
+export const OPERATORS = ['+', '-', '÷']
 
 export const OPERATOR_TO_ENDPOINT = {
   '+': 'add',

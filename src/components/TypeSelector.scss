@@ -5,7 +5,7 @@
 .section-title {
   font-size: 13px;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--text-muted);
   letter-spacing: 1.5px;
   margin: 0 0 14px;
 }
@@ -17,8 +17,8 @@
 
 .type-card {
   flex: 1;
-  background: #fff;
-  border: 2px dashed #cbd5e1;
+  background: var(--card-bg);
+  border: 2px dashed var(--border);
   border-radius: 12px;
   padding: 20px 10px;
   text-align: center;
@@ -26,25 +26,26 @@
   transition: all 0.2s;
 
   &:hover {
-    border-color: #f9a858;
+    border-color: var(--accent);
   }
 
   &.selected {
-    border-color: #f97316;
-    background: #fff7ed;
+    border-color: var(--accent);
+    background: var(--accent-light);
   }
 }
 
 .type-icon {
   display: block;
-  font-size: 40px;
+  font-size: 36px;
   margin-bottom: 8px;
+  color: var(--accent);
 }
 
 .type-label {
   font-size: 15px;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--text-primary);
 }
 
 @media (max-width: 640px) {
